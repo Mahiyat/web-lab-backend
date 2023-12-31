@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Course List</h1>
+    <table border="1">
+      <tr>
+        <td>Course ID</td>
+        <td>Course Name</td>
+        <td>Course Credit</td>
+        <td>Tutorial Full Marks</td>
+        <td>Attendance Full Marks</td>
+        <td>Final Full Marks</td>
+        <td>ACTION</td>
+      </tr>
+      {%for course in all_courses%}
+      <tr>
+        <td>{{course.course_id}}</td>
+        <td>{{course.course_name}}</td>
+        <td>{{course.course_credit}}</td>
+        <td>{{course.tutorial_full_marks}}</td>
+        <td>{{course.att_full_marks}}</td>
+        <td>{{course.final_full_marks}}</td>
+        <td>
+          <a href="{%url 'edit' course.id%}">EDIT</a>
+          <a href="{%url 'remove' course.id%}">DELETE</a>
+        </td>
+      </tr>
+      {%endfor%}
+    </table>
+    <a href="{%url 'add'%}">ADD NEW COURSE</a>
+  </body>
+</html>
